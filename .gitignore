@@ -1,0 +1,11 @@
+# OS / editor junk
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+*.swp
+.vscode/
+.idea/
+
+# Dependencies (none yet, but in case tooling is added later)
+node_modules/

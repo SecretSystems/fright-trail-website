@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fright Trail — Twenty Acres of Haunted Woods | Scott, Louisiana</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23060606'/%3E%3Cpath d='M16 4C9 4 5 9 5 16c0 4 2 7 4 8v3c0 1 1 2 2 2h2v-3h2v3h2v-3h2v3h2c1 0 2-1 2-2v-3c2-1 4-4 4-8 0-7-4-12-11-12z' fill='%23ededeb'/%3E%3Ccircle cx='11' cy='15' r='3' fill='%23060606'/%3E%3Ccircle cx='21' cy='15' r='3' fill='%23060606'/%3E%3C/svg%3E" />
+  <meta name="description" content="Fright Trail — Acadiana's premier haunted attraction. Twenty acres of haunted woods in Scott, Louisiana. Real people. Real fear. Shock after shock." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ============================= HEADER ============================= -->
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html" aria-label="Fright Trail home">
+        <span class="brand__name">FRIGHT TRAIL</span>
+        <span class="brand__tag">Twenty Acres of Haunted Woods</span>
+      </a>
+
+      <ul class="nav__links">
+        <li><a href="tickets.html">Tickets</a></li>
+        <li><a href="#dates">Hours</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#location">Location</a></li>
+        <li><a href="merch.html">Merch</a></li>
+        <li><a href="#videos">Videos</a></li>
+        <li><a href="volunteer.html">Volunteer</a></li>
+        <li class="nav__cta"><a class="btn btn--sm" href="tickets.html">Buy Tickets</a></li>
+      </ul>
+
+      <button class="nav__toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ============================= HERO ============================== -->
+  <section class="hero">
+    <div class="hero__smoke" aria-hidden="true"></div>
+    <div class="hero__inner">
+      <div class="hero__copy">
+        <p class="hero__eyebrow">Twenty Acres of</p>
+        <h1 class="hero__title display">HAUNTED<br>WOODS</h1>
+        <div class="hero__actions">
+          <a class="btn btn--solid" href="tickets.html">Buy Tickets</a>
+          <a class="btn" href="#videos">Watch Video</a>
+        </div>
+      </div>
+
+      <div class="hero__art" aria-hidden="true">
+        <!-- spiderweb (corner) -->
+        <svg class="hero__web" viewBox="0 0 120 120" fill="none" stroke="#cfccc4" stroke-width="1.1">
+          <path d="M120 0 L0 120 M120 0 L60 0 M120 0 L120 60 M120 0 L20 0 M120 0 L120 20"/>
+          <path d="M120 0 L8 50 M120 0 L50 8 M120 0 L4 90 M120 0 L90 4"/>
+          <path d="M104 0 Q100 16 84 16 M84 0 Q80 32 50 32 M64 0 Q58 50 14 50"/>
+          <path d="M120 16 Q104 20 104 36 M120 36 Q88 40 88 70 M120 64 Q70 58 70 104"/>
+        </svg>
+
+        <!-- skull (placeholder horror art — swap for a real poster image later) -->
+        <svg class="hero__skull" viewBox="0 0 300 320" fill="none">
+          <defs>
+            <radialGradient id="bone" cx="50%" cy="40%" r="70%">
+              <stop offset="0%" stop-color="#cfccc4"/>
+              <stop offset="60%" stop-color="#8a877f"/>
+              <stop offset="100%" stop-color="#2a2a27"/>
+            </radialGradient>
+          </defs>
+          <path fill="url(#bone)" d="M150 20c-70 0-110 48-110 116 0 38 16 64 34 78 6 5 8 12 8 22v18c0 12 10 20 24 20h12v-26h12v26h20v-26h12v26h12c14 0 24-8 24-20v-18c0-10 2-17 8-22 18-14 34-40 34-78C260 68 220 20 150 20z"/>
+          <ellipse cx="108" cy="150" rx="30" ry="34" fill="#0a0a0a"/>
+          <ellipse cx="192" cy="150" rx="30" ry="34" fill="#0a0a0a"/>
+          <ellipse cx="116" cy="146" rx="9" ry="10" fill="#f2f0ea"/>
+          <ellipse cx="184" cy="146" rx="9" ry="10" fill="#f2f0ea"/>
+          <path d="M150 178l-16 40h32z" fill="#0a0a0a"/>
+        </svg>
+
+        <p class="hero__shock display">SHOCK<br>AFTER<br>SHOCK!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== REAL PEOPLE. REAL FEAR. ==================== -->
+  <section class="section" id="videos">
+    <div class="wrap">
+      <h2 class="section__kicker">Real People. Real Fear.</h2>
+      <div class="carousel">
+        <button class="carousel__btn carousel__btn--prev" aria-label="Previous">&#8249;</button>
+        <div class="carousel__track" id="video-track"><!-- JS injects thumbnails --></div>
+        <button class="carousel__btn carousel__btn--next" aria-label="Next">&#8250;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROMO CARDS =============================== -->
+  <section class="section" style="padding-top:6px">
+    <div class="wrap">
+      <div class="cards">
+
+        <!-- Tickets -->
+        <article class="card card--tickets">
+          <span class="card__small">Get Your</span>
+          <span class="card__big display">Tickets</span>
+          <p class="card__sub">Online now!</p>
+          <svg class="card__art" viewBox="0 0 120 120" fill="none" stroke="#fff" stroke-width="3">
+            <path d="M62 64l40-22M44 92l52-30" /><circle cx="40" cy="96" r="8"/><circle cx="60" cy="68" r="6"/>
+            <path d="M30 60c0-22 18-40 40-40" /><path d="M70 20l8 8-8 8"/>
+          </svg>
+          <a class="btn btn--solid btn--sm" href="tickets.html">Buy Now</a>
+        </article>
+
+        <!-- Merch -->
+        <article class="card card--merch">
+          <span class="card__small">Get Your</span>
+          <span class="card__big display">Merch</span>
+          <p class="card__sub">Tees, hoodies, posters &amp; more.</p>
+          <svg class="card__art" viewBox="0 0 120 120" fill="none" stroke="#fff" stroke-width="3">
+            <path d="M40 30l20 10 20-10 22 14-12 16-10-6v46H40V54l-10 6-12-16z"/>
+          </svg>
+          <a class="btn btn--solid btn--sm" href="merch.html">Shop Now</a>
+        </article>
+
+        <!-- Dates -->
+        <article class="card card--dates">
+          <span class="card__small">Open</span>
+          <span class="card__big display">Select Dates</span>
+          <div class="dates__list">
+            <div class="dates__row"><span class="dates__month">October</span><br>
+              <span class="dates__nums">11–12, 18–19, 25–26, 31</span></div>
+            <div class="dates__row" style="margin-top:6px"><span class="dates__month">November</span><br>
+              <span class="dates__nums">1–2</span></div>
+          </div>
+          <a class="btn btn--sm" href="#dates">View Hours</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== LOCATION STRIP ============================ -->
+  <section class="section" id="location" style="padding-top:6px">
+    <div class="wrap">
+      <div class="location">
+        <svg class="location__pin" viewBox="0 0 24 36" fill="none" stroke="#ededeb" stroke-width="2" aria-hidden="true">
+          <path d="M12 1C6 1 2 5 2 11c0 7 10 23 10 23s10-16 10-23C22 5 18 1 12 1z"/>
+          <circle cx="12" cy="11" r="4"/>
+        </svg>
+        <div class="location__body">
+          <p class="location__small">Located in</p>
+          <h2 class="location__big display">Scott, Louisiana</h2>
+          <p class="location__sub">Acadiana's premier haunted attraction!</p>
+          <a class="btn btn--sm" data-directions href="#">Get Directions</a>
+        </div>
+        <div class="location__sign display">FRIGHT<br>TRAIL</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== HOURS / DATES DETAIL ====================== -->
+  <section class="section" id="dates" style="padding-top:6px">
+    <div class="wrap">
+      <h2 class="section__kicker">Hours &amp; Open Nights</h2>
+      <div class="cards">
+        <article class="card">
+          <span class="card__small">Gates Open</span>
+          <span class="card__big display" style="font-size:1.8rem">Fri &amp; Sat</span>
+          <p class="card__sub">7:30 PM – 11:30 PM</p>
+        </article>
+        <article class="card">
+          <span class="card__small">Gates Open</span>
+          <span class="card__big display" style="font-size:1.8rem">Sunday</span>
+          <p class="card__sub">7:30 PM – 10:00 PM</p>
+        </article>
+        <article class="card">
+          <span class="card__small">Halloween Night</span>
+          <span class="card__big display" style="font-size:1.8rem">Oct 31</span>
+          <p class="card__sub">7:30 PM – Midnight</p>
+          <a class="btn btn--solid btn--sm" href="tickets.html">Buy Tickets</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== GALLERY =================================== -->
+  <section class="section" id="gallery" style="padding-top:6px">
+    <div class="wrap">
+      <h2 class="section__kicker">From the Woods</h2>
+      <div class="gallery" id="gallery-grid"><!-- JS injects tiles --></div>
+    </div>
+  </section>
+
+  <!-- ===================== FEATURE CARDS ============================= -->
+  <section class="section" style="padding-top:6px">
+    <div class="wrap">
+      <div class="features">
+        <div class="feature">
+          <svg class="feature__icon" viewBox="0 0 48 48" fill="none" stroke="#ededeb" stroke-width="2"><path d="M24 6c-9 0-15 7-15 16 0 6 3 10 6 12v6c0 2 2 4 4 4h10c2 0 4-2 4-4v-6c3-2 6-6 6-12 0-9-6-16-15-16z"/><circle cx="18" cy="22" r="3" fill="#ededeb"/><circle cx="30" cy="22" r="3" fill="#ededeb"/></svg>
+          <div class="feature__txt"><strong>20 Acres</strong><span>of Fear</span></div>
+        </div>
+        <div class="feature">
+          <svg class="feature__icon" viewBox="0 0 48 48" fill="none" stroke="#ededeb" stroke-width="2"><circle cx="24" cy="24" r="18"/><path d="M12 12l24 24"/></svg>
+          <div class="feature__txt"><strong>Not</strong><span>Recommended for Children</span></div>
+        </div>
+        <div class="feature">
+          <svg class="feature__icon" viewBox="0 0 48 48" fill="none" stroke="#ededeb" stroke-width="2"><path d="M24 5l15 6v10c0 11-7 18-15 22-8-4-15-11-15-22V11z"/><path d="M17 24l5 5 9-10"/></svg>
+          <div class="feature__txt"><strong>Security</strong><span>On Site</span></div>
+        </div>
+        <a class="feature" href="volunteer.html">
+          <svg class="feature__icon" viewBox="0 0 48 48" fill="none" stroke="#ededeb" stroke-width="2"><path d="M24 42s-14-9-14-20a8 8 0 0114-5 8 8 0 0114 5c0 11-14 20-14 20z"/></svg>
+          <div class="feature__txt"><strong>Volunteer</strong><span>If You Dare</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="wrap foot">
+      <div class="foot__brand display">FRIGHT TRAIL</div>
+      <nav class="foot__links">
+        <a href="tickets.html">Tickets</a>
+        <a href="merch.html">Merch</a>
+        <a href="#videos">Videos</a>
+        <a href="#gallery">Gallery</a>
+        <a data-directions href="#">Directions</a>
+        <a href="volunteer.html">Volunteer</a>
+      </nav>
+    </div>
+    <div class="wrap"><p class="foot__fine">© Fright Trail · Twenty Acres of Haunted Woods · Scott, Louisiana · Real People. Real Fear.</p></div>
+  </footer>
+
+  <!-- ===================== VIDEO MODAL =============================== -->
+  <div class="modal" id="video-modal" role="dialog" aria-modal="true" aria-label="Video player">
+    <div class="modal__box">
+      <button class="modal__close" aria-label="Close">&times;</button>
+      <div class="modal__frame"></div>
+      <div class="modal__cap">Fright Trail</div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

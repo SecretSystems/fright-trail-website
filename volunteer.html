@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Volunteer — Fright Trail</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23060606'/%3E%3Cpath d='M16 4C9 4 5 9 5 16c0 4 2 7 4 8v3c0 1 1 2 2 2h2v-3h2v3h2v-3h2v3h2c1 0 2-1 2-2v-3c2-1 4-4 4-8 0-7-4-12-11-12z' fill='%23ededeb'/%3E%3Ccircle cx='11' cy='15' r='3' fill='%23060606'/%3E%3Ccircle cx='21' cy='15' r='3' fill='%23060606'/%3E%3C/svg%3E" />
+  <meta name="description" content="Volunteer at Fright Trail. Become an actor or crew at Acadiana's premier haunted attraction." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html">
+        <span class="brand__name">FRIGHT TRAIL</span>
+        <span class="brand__tag">Twenty Acres of Haunted Woods</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="tickets.html">Tickets</a></li>
+        <li><a href="index.html#dates">Hours</a></li>
+        <li><a href="index.html#gallery">Gallery</a></li>
+        <li><a href="index.html#location">Location</a></li>
+        <li><a href="merch.html">Merch</a></li>
+        <li><a href="index.html#videos">Videos</a></li>
+        <li><a href="volunteer.html">Volunteer</a></li>
+        <li class="nav__cta"><a class="btn btn--sm" href="tickets.html">Buy Tickets</a></li>
+      </ul>
+      <button class="nav__toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </nav>
+  </header>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <h1 class="display">VOLUNTEER</h1>
+      <p>If you dare. Become an actor or crew in the haunted woods.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap" style="max-width:640px">
+      <div class="notice">
+        <strong>Form placeholder.</strong> Hook this up to your form backend
+        (Formspree, Netlify Forms, Google Forms, or a custom endpoint) later.
+      </div>
+
+      <form class="form" id="volunteer-form">
+        <div class="field">
+          <label for="name">Full Name</label>
+          <input id="name" name="name" type="text" required />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required />
+        </div>
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" />
+        </div>
+        <div class="field">
+          <label for="age">Age</label>
+          <input id="age" name="age" type="number" min="16" max="99" />
+        </div>
+        <div class="field">
+          <label for="role">Interested In</label>
+          <select id="role" name="role">
+            <option>Scare Actor</option>
+            <option>Makeup / FX</option>
+            <option>Crew / Setup</option>
+            <option>Parking &amp; Security</option>
+            <option>Wherever I'm needed</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="why">Why do you want to haunt with us?</label>
+          <textarea id="why" name="why" rows="4"></textarea>
+        </div>
+        <button class="btn btn--solid" type="submit">Submit Application</button>
+      </form>
+
+      <p style="margin-top:24px"><a class="btn btn--sm" href="index.html">&#8592; Back to Home</a></p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap foot">
+      <div class="foot__brand display">FRIGHT TRAIL</div>
+      <nav class="foot__links">
+        <a href="tickets.html">Tickets</a><a href="merch.html">Merch</a>
+        <a data-directions href="#">Directions</a><a href="volunteer.html">Volunteer</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById("volunteer-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("Application placeholder received.\n\nNext: connect this form to your backend (Formspree / Netlify / custom endpoint).");
+    });
+  </script>
+</body>
+</html>

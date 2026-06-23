@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buy Tickets — Fright Trail</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23060606'/%3E%3Cpath d='M16 4C9 4 5 9 5 16c0 4 2 7 4 8v3c0 1 1 2 2 2h2v-3h2v3h2v-3h2v3h2c1 0 2-1 2-2v-3c2-1 4-4 4-8 0-7-4-12-11-12z' fill='%23ededeb'/%3E%3Ccircle cx='11' cy='15' r='3' fill='%23060606'/%3E%3Ccircle cx='21' cy='15' r='3' fill='%23060606'/%3E%3C/svg%3E" />
+  <meta name="description" content="Buy tickets to Fright Trail — Twenty Acres of Haunted Woods in Scott, Louisiana." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html">
+        <span class="brand__name">FRIGHT TRAIL</span>
+        <span class="brand__tag">Twenty Acres of Haunted Woods</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="tickets.html">Tickets</a></li>
+        <li><a href="index.html#dates">Hours</a></li>
+        <li><a href="index.html#gallery">Gallery</a></li>
+        <li><a href="index.html#location">Location</a></li>
+        <li><a href="merch.html">Merch</a></li>
+        <li><a href="index.html#videos">Videos</a></li>
+        <li><a href="volunteer.html">Volunteer</a></li>
+        <li class="nav__cta"><a class="btn btn--sm" href="tickets.html">Buy Tickets</a></li>
+      </ul>
+      <button class="nav__toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </nav>
+  </header>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <h1 class="display">BUY TICKETS</h1>
+      <p>Twenty Acres of Haunted Woods · Scott, Louisiana</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap" style="max-width:640px">
+
+      <div class="notice">
+        <strong>Checkout placeholder.</strong> This is where Stripe Checkout will go.
+        Wire each ticket tier below to a Stripe <em>price ID</em> and redirect to a
+        Checkout Session on submit. (See <code>README.md</code>.)
+      </div>
+
+      <form class="form" id="ticket-form">
+        <div class="field">
+          <label for="tier">Ticket Type</label>
+          <select id="tier" name="tier">
+            <option value="ga">General Admission — $30</option>
+            <option value="fastpass">Fast Pass (skip the line) — $50</option>
+            <option value="group">Group of 4 — $100</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="night">Choose a Night</label>
+          <select id="night" name="night">
+            <option>Oct 11</option><option>Oct 12</option>
+            <option>Oct 18</option><option>Oct 19</option>
+            <option>Oct 25</option><option>Oct 26</option>
+            <option>Oct 31 — Halloween</option>
+            <option>Nov 1</option><option>Nov 2</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="qty">Quantity</label>
+          <input id="qty" name="qty" type="number" min="1" max="20" value="2" />
+        </div>
+        <button class="btn btn--solid" type="submit">Proceed to Checkout</button>
+      </form>
+
+      <p style="margin-top:24px"><a class="btn btn--sm" href="index.html">&#8592; Back to Home</a></p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap foot">
+      <div class="foot__brand display">FRIGHT TRAIL</div>
+      <nav class="foot__links">
+        <a href="tickets.html">Tickets</a><a href="merch.html">Merch</a>
+        <a data-directions href="#">Directions</a><a href="volunteer.html">Volunteer</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    /* Placeholder submit — replace with Stripe Checkout redirect later. */
+    document.getElementById("ticket-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("Stripe checkout placeholder.\n\nNext: create a Checkout Session for the selected ticket(s) and redirect here.");
+    });
+  </script>
+</body>
+</html>
