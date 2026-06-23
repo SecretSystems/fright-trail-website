@@ -16,16 +16,15 @@
 window.FRIGHT_DATA = {
 
   /* "REAL PEOPLE. REAL FEAR." carousel.
-     thumb:     real scared-face photo (shown as the tile). If the file is
-                missing the tile gracefully falls back to a generated face.
-     youtubeId: paste a YouTube / Shorts video id (e.g. "dQw4w9WgXcQ") to
-                embed the clip; until then the player shows a placeholder. */
+     Thumbnails come from js/assets-manifest.js (FRIGHT_ASSETS.videos[i] ->
+     assets/img/videos/fear-0X/image.png). A missing image falls back to a
+     generated scary-face. Set youtubeId to embed a real clip in the player. */
   videos: [
-    { id: "v1", title: "Real People. Real Fear. #1", youtubeId: null, thumb: "assets/img/videos/fear-01.png" },
-    { id: "v2", title: "Real People. Real Fear. #2", youtubeId: null, thumb: "assets/img/videos/fear-02.png" },
-    { id: "v3", title: "Real People. Real Fear. #3", youtubeId: null, thumb: "assets/img/videos/fear-03.png" },
-    { id: "v4", title: "Real People. Real Fear. #4", youtubeId: null, thumb: "assets/img/videos/fear-04.png" },
-    { id: "v5", title: "Real People. Real Fear. #5", youtubeId: null, thumb: "assets/img/videos/fear-05.png" }
+    { id: "v1", title: "Real People. Real Fear. #1", youtubeId: null, thumb: null },
+    { id: "v2", title: "Real People. Real Fear. #2", youtubeId: null, thumb: null },
+    { id: "v3", title: "Real People. Real Fear. #3", youtubeId: null, thumb: null },
+    { id: "v4", title: "Real People. Real Fear. #4", youtubeId: null, thumb: null },
+    { id: "v5", title: "Real People. Real Fear. #5", youtubeId: null, thumb: null }
   ],
 
   /* GALLERY — replace `src: null` with real photo paths e.g. "assets/img/g1.jpg" */

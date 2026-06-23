@@ -116,6 +116,34 @@
     return svg.replace(/__U__/g, uid).replace(/__S__/g, String((index % 7) + 1));
   }
 
+  /* =====================================================================
+     IMAGE MANIFEST  (js/assets-manifest.js -> window.FRIGHT_ASSETS)
+     Resolves a dot-path like "cards.tickets" to its image URL and applies it
+     to any [data-asset] element: <img> gets src, anything else gets a
+     background-image. Missing files fall back to the built-in CSS/SVG art.
+     ================================================================== */
+  function getAsset(path) {
+    var a = window.FRIGHT_ASSETS;
+    if (!a || !path) return null;
+    return path.split(".").reduce(function (o, k) { return o == null ? null : o[k]; }, a);
+  }
+  function initAssets() {
+    document.querySelectorAll("[data-asset]").forEach(function (node) {
+      var url = getAsset(node.getAttribute("data-asset"));
+      if (!url) return;
+      if (node.tagName === "IMG") {
+        node.onerror = function () {
+          node.onerror = null;
+          node.src = "assets/img/hero-haunted-woods.svg";
+          node.classList.add("hero__bg--fallback");
+        };
+        node.src = url;
+      } else {
+        node.style.backgroundImage = "url('" + url + "')";
+      }
+    });
+  }
+
   /* ----- helpers -------------------------------------------------------- */
   function $(s, c) { return (c || document).querySelector(s); }
   function el(tag, cls, html) {
@@ -204,8 +232,15 @@
       // A real thumbnail, if present, is layered on top via background-image
       // (background images fail silently — no console error if missing).
       var inner = '<span class="vthumb__face">' + buildFace(i) + "</span>";
-      if (v.thumb) {
-        inner += '<span class="vthumb__img" style="background-image:url(\'' + v.thumb + '\')"></span>';
+      // thumbnail comes from the manifest (assets/img/videos/fear-0X/image.png),
+      // falling back to any thumb set in data.js, then to the generated face.
+      var thumb = getAsset("videos." + i);
+      if (thumb == null && window.FRIGHT_ASSETS && Array.isArray(window.FRIGHT_ASSETS.videos)) {
+        thumb = window.FRIGHT_ASSETS.videos[i];
+      }
+      thumb = thumb || v.thumb;
+      if (thumb) {
+        inner += '<span class="vthumb__img" style="background-image:url(\'' + thumb + '\')"></span>';
       }
       inner += '<span class="vthumb__grade">REAL FEAR</span>';
       inner += '<div class="vthumb__play">' + SVG.play + "</div>";
@@ -241,6 +276,7 @@
 
   /* ----- boot ----------------------------------------------------------- */
   document.addEventListener("DOMContentLoaded", function () {
+    initAssets();
     initNav();
     initDirections();
     initModal();

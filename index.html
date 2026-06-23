@@ -42,9 +42,7 @@
        PNG is missing it gracefully falls back to the hand-built SVG. -->
   <section class="hero" aria-label="Twenty Acres of Haunted Woods — Shock after shock">
     <h1 class="sr-only">Fright Trail — Twenty Acres of Haunted Woods. Real people. Real fear. Shock after shock.</h1>
-    <img class="hero__bg" src="assets/img/hero/hero-haunted-woods.png"
-         onerror="this.onerror=null;this.src='assets/img/hero-haunted-woods.svg';this.classList.add('hero__bg--fallback')"
-         alt="Fright Trail haunted attraction poster: a giant reaching ghoul with glowing eyes, a vampire, a skeleton and a spiderweb. Twenty Acres of Haunted Woods. Shock after shock.">
+    <img class="hero__bg" data-asset="hero" alt="Fright Trail haunted attraction poster: a giant reaching ghoul with glowing eyes, a vampire, a skeleton and a spiderweb. Twenty Acres of Haunted Woods. Shock after shock.">
     <div class="hero__actions">
       <a class="btn btn--solid" href="tickets.html">Buy Tickets</a>
       <a class="btn" href="#videos">Watch Video</a>
@@ -71,7 +69,7 @@
         <!-- Tickets — whole card links to checkout. card__img shows the real
              image; if it is missing, the CSS fallback below shows instead. -->
         <a class="card card--tickets" href="tickets.html" aria-label="Get your tickets — buy now">
-          <span class="card__img" style="background-image:url('assets/img/cards/tickets-card.png')" aria-hidden="true"></span>
+          <span class="card__img" data-asset="cards.tickets" aria-hidden="true"></span>
           <div class="card__fallback">
             <span class="card__small">Get Your</span>
             <span class="card__big display">Tickets</span>
@@ -93,7 +91,7 @@
 
         <!-- Merch -->
         <a class="card card--merch" href="merch.html" aria-label="Get your merch — shop now">
-          <span class="card__img" style="background-image:url('assets/img/cards/merch-card.png')" aria-hidden="true"></span>
+          <span class="card__img" data-asset="cards.merch" aria-hidden="true"></span>
           <div class="card__fallback">
             <span class="card__small">Get Your</span>
             <span class="card__big display">Merch</span>
@@ -109,7 +107,7 @@
 
         <!-- Dates -->
         <a class="card card--dates" href="#dates" aria-label="Open select dates — view hours">
-          <span class="card__img" style="background-image:url('assets/img/cards/dates-card.png')" aria-hidden="true"></span>
+          <span class="card__img" data-asset="cards.dates" aria-hidden="true"></span>
           <div class="card__fallback">
             <span class="card__small">Open</span>
             <span class="card__big display">Select Dates</span>
@@ -131,7 +129,7 @@
   <section class="section" id="location" style="padding-top:6px">
     <div class="wrap">
       <a class="location" data-directions href="#" aria-label="Get directions to Fright Trail in Scott, Louisiana">
-        <span class="location__img" style="background-image:url('assets/img/location/scott-location-strip.png')" aria-hidden="true"></span>
+        <span class="location__img" data-asset="location" aria-hidden="true"></span>
         <div class="location__fallback">
           <svg class="location__pin" viewBox="0 0 24 36" fill="none" stroke="#ededeb" stroke-width="2" aria-hidden="true">
             <path d="M12 1C6 1 2 5 2 11c0 7 10 23 10 23s10-16 10-23C22 5 18 1 12 1z"/>
@@ -187,28 +185,28 @@
     <div class="wrap">
       <div class="features">
         <div class="feature">
-          <span class="feature__img" style="background-image:url('assets/img/features/acres-of-fear.png')" aria-hidden="true"></span>
+          <span class="feature__img" data-asset="features.acresOfFear" aria-hidden="true"></span>
           <div class="feature__fallback">
             <svg class="feature__icon" viewBox="0 0 48 48" fill="none" stroke="#ededeb" stroke-width="2"><path d="M24 6c-9 0-15 7-15 16 0 6 3 10 6 12v6c0 2 2 4 4 4h10c2 0 4-2 4-4v-6c3-2 6-6 6-12 0-9-6-16-15-16z"/><circle cx="18" cy="22" r="3" fill="#ededeb"/><circle cx="30" cy="22" r="3" fill="#ededeb"/></svg>
             <div class="feature__txt"><strong>20 Acres</strong><span>of Fear</span></div>
           </div>
         </div>
         <div class="feature">
-          <span class="feature__img" style="background-image:url('assets/img/features/not-for-children.png')" aria-hidden="true"></span>
+          <span class="feature__img" data-asset="features.notForChildren" aria-hidden="true"></span>
           <div class="feature__fallback">
             <svg class="feature__icon" viewBox="0 0 48 48" fill="none" stroke="#ededeb" stroke-width="2"><circle cx="24" cy="24" r="18"/><path d="M12 12l24 24"/></svg>
             <div class="feature__txt"><strong>Not</strong><span>Recommended for Children</span></div>
           </div>
         </div>
         <div class="feature">
-          <span class="feature__img" style="background-image:url('assets/img/features/security-on-site.png')" aria-hidden="true"></span>
+          <span class="feature__img" data-asset="features.securityOnSite" aria-hidden="true"></span>
           <div class="feature__fallback">
             <svg class="feature__icon" viewBox="0 0 48 48" fill="none" stroke="#ededeb" stroke-width="2"><path d="M24 5l15 6v10c0 11-7 18-15 22-8-4-15-11-15-22V11z"/><path d="M17 24l5 5 9-10"/></svg>
             <div class="feature__txt"><strong>Security</strong><span>On Site</span></div>
           </div>
         </div>
         <a class="feature" href="volunteer.html" aria-label="Volunteer if you dare">
-          <span class="feature__img" style="background-image:url('assets/img/features/volunteer.png')" aria-hidden="true"></span>
+          <span class="feature__img" data-asset="features.volunteer" aria-hidden="true"></span>
           <div class="feature__fallback">
             <svg class="feature__icon" viewBox="0 0 48 48" fill="none" stroke="#ededeb" stroke-width="2"><path d="M24 42s-14-9-14-20a8 8 0 0114-5 8 8 0 0114 5c0 11-14 20-14 20z"/></svg>
             <div class="feature__txt"><strong>Volunteer</strong><span>If You Dare</span></div>
@@ -243,6 +241,7 @@
     </div>
   </div>
 
+  <script src="js/assets-manifest.js"></script>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
