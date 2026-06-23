@@ -36,14 +36,13 @@
   </header>
 
   <!-- ============================= HERO ==============================
-       The hero is the finished poster artwork (assets/img/hero.png). It
-       already contains the "Twenty Acres of Haunted Woods" headline and the
-       Buy Tickets / Watch Video buttons, so we overlay transparent clickable
-       hotspots on those buttons to keep them functional. If hero.png is not
-       present yet, it falls back to the hand-built SVG illustration. -->
+       Full-width hero poster image (keeps its aspect ratio). The artwork
+       already contains the "Twenty Acres of Haunted Woods" headline, so we
+       only overlay the functional Buy Tickets / Watch Video buttons. If the
+       PNG is missing it gracefully falls back to the hand-built SVG. -->
   <section class="hero" aria-label="Twenty Acres of Haunted Woods — Shock after shock">
     <h1 class="sr-only">Fright Trail — Twenty Acres of Haunted Woods. Real people. Real fear. Shock after shock.</h1>
-    <img class="hero__bg" src="assets/img/hero.png"
+    <img class="hero__bg" src="assets/img/hero/hero-haunted-woods.png"
          onerror="this.onerror=null;this.src='assets/img/hero-haunted-woods.svg';this.classList.add('hero__bg--fallback')"
          alt="Fright Trail haunted attraction poster: a giant reaching ghoul with glowing eyes, a vampire, a skeleton and a spiderweb. Twenty Acres of Haunted Woods. Shock after shock.">
     <div class="hero__actions">
@@ -69,55 +68,60 @@
     <div class="wrap">
       <div class="cards">
 
-        <!-- Tickets -->
-        <article class="card card--tickets">
-          <span class="card__small">Get Your</span>
-          <span class="card__big display">Tickets</span>
-          <p class="card__sub">Online now!</p>
-          <svg class="card__art" viewBox="0 0 130 150" fill="#cfccc4" stroke="#000" stroke-width="1.4" aria-hidden="true">
-            <!-- skull -->
-            <path d="M92 14c-15 0-24 11-24 25 0 8 3 14 8 17v7c0 3 3 5 6 5h20c3 0 6-2 6-5v-7c5-3 8-9 8-17 0-14-9-25-24-25z"/>
-            <ellipse cx="84" cy="38" rx="4.5" ry="6" fill="#000"/><ellipse cx="100" cy="38" rx="4.5" ry="6" fill="#000"/>
-            <path d="M92 44l-3 8h6z" fill="#000"/>
-            <g stroke="#000" stroke-width="1.2"><path d="M82 56h20M85 56v6M92 56v7M99 56v6"/></g>
-            <!-- spine -->
-            <rect x="89" y="68" width="6" height="34" rx="3"/>
-            <!-- ribs -->
-            <g stroke="#cfccc4" stroke-width="3" fill="none"><path d="M92 76q-14 3-16 13M92 84q-15 3-17 14M92 92q-13 3-15 12"/></g>
-            <!-- pointing arm + bony finger aimed at the word "Tickets" -->
-            <path d="M90 74 L34 104" stroke="#cfccc4" stroke-width="7" stroke-linecap="round"/>
-            <path d="M34 104 l-13 4" stroke="#cfccc4" stroke-width="4" stroke-linecap="round"/>
-            <path d="M22 109 l-7 0M22 105 l-6 -3M23 113 l-6 3" stroke="#cfccc4" stroke-width="2.4" stroke-linecap="round"/>
-          </svg>
-          <a class="btn btn--solid btn--sm" href="tickets.html">Buy Now</a>
-        </article>
+        <!-- Tickets — whole card links to checkout. card__img shows the real
+             image; if it is missing, the CSS fallback below shows instead. -->
+        <a class="card card--tickets" href="tickets.html" aria-label="Get your tickets — buy now">
+          <span class="card__img" style="background-image:url('assets/img/cards/tickets-card.png')" aria-hidden="true"></span>
+          <div class="card__fallback">
+            <span class="card__small">Get Your</span>
+            <span class="card__big display">Tickets</span>
+            <p class="card__sub">Online now!</p>
+            <svg class="card__art" viewBox="0 0 130 150" fill="#cfccc4" stroke="#000" stroke-width="1.4" aria-hidden="true">
+              <path d="M92 14c-15 0-24 11-24 25 0 8 3 14 8 17v7c0 3 3 5 6 5h20c3 0 6-2 6-5v-7c5-3 8-9 8-17 0-14-9-25-24-25z"/>
+              <ellipse cx="84" cy="38" rx="4.5" ry="6" fill="#000"/><ellipse cx="100" cy="38" rx="4.5" ry="6" fill="#000"/>
+              <path d="M92 44l-3 8h6z" fill="#000"/>
+              <g stroke="#000" stroke-width="1.2"><path d="M82 56h20M85 56v6M92 56v7M99 56v6"/></g>
+              <rect x="89" y="68" width="6" height="34" rx="3"/>
+              <g stroke="#cfccc4" stroke-width="3" fill="none"><path d="M92 76q-14 3-16 13M92 84q-15 3-17 14M92 92q-13 3-15 12"/></g>
+              <path d="M90 74 L34 104" stroke="#cfccc4" stroke-width="7" stroke-linecap="round"/>
+              <path d="M34 104 l-13 4" stroke="#cfccc4" stroke-width="4" stroke-linecap="round"/>
+              <path d="M22 109 l-7 0M22 105 l-6 -3M23 113 l-6 3" stroke="#cfccc4" stroke-width="2.4" stroke-linecap="round"/>
+            </svg>
+            <span class="btn btn--solid btn--sm">Buy Now</span>
+          </div>
+        </a>
 
         <!-- Merch -->
-        <article class="card card--merch">
-          <span class="card__small">Get Your</span>
-          <span class="card__big display">Merch</span>
-          <p class="card__sub">Tees, hoodies, posters &amp; more.</p>
-          <svg class="card__art" viewBox="0 0 120 120" fill="#15150f" stroke="#cfccc4" stroke-width="2.4" aria-hidden="true">
-            <!-- t-shirt -->
-            <path d="M44 22 L28 30 l8 18 9-5 v52 h30 v-52 l9 5 8-18 -16-8 c-3 9-26 9-29 0z"/>
-            <text x="60" y="64" text-anchor="middle" fill="#cfccc4" stroke="none" font-family="Metal Mania, cursive" font-size="13">FRIGHT</text>
-            <text x="60" y="80" text-anchor="middle" fill="#cfccc4" stroke="none" font-family="Metal Mania, cursive" font-size="13">TRAIL</text>
-          </svg>
-          <a class="btn btn--solid btn--sm" href="merch.html">Shop Now</a>
-        </article>
+        <a class="card card--merch" href="merch.html" aria-label="Get your merch — shop now">
+          <span class="card__img" style="background-image:url('assets/img/cards/merch-card.png')" aria-hidden="true"></span>
+          <div class="card__fallback">
+            <span class="card__small">Get Your</span>
+            <span class="card__big display">Merch</span>
+            <p class="card__sub">Tees, hoodies, posters &amp; more.</p>
+            <svg class="card__art" viewBox="0 0 120 120" fill="#15150f" stroke="#cfccc4" stroke-width="2.4" aria-hidden="true">
+              <path d="M44 22 L28 30 l8 18 9-5 v52 h30 v-52 l9 5 8-18 -16-8 c-3 9-26 9-29 0z"/>
+              <text x="60" y="64" text-anchor="middle" fill="#cfccc4" stroke="none" font-family="Metal Mania, cursive" font-size="13">FRIGHT</text>
+              <text x="60" y="80" text-anchor="middle" fill="#cfccc4" stroke="none" font-family="Metal Mania, cursive" font-size="13">TRAIL</text>
+            </svg>
+            <span class="btn btn--solid btn--sm">Shop Now</span>
+          </div>
+        </a>
 
         <!-- Dates -->
-        <article class="card card--dates">
-          <span class="card__small">Open</span>
-          <span class="card__big display">Select Dates</span>
-          <div class="dates__list">
-            <div class="dates__row"><span class="dates__month">October</span><br>
-              <span class="dates__nums">11–12, 18–19, 25–26, 31</span></div>
-            <div class="dates__row" style="margin-top:6px"><span class="dates__month">November</span><br>
-              <span class="dates__nums">1–2</span></div>
+        <a class="card card--dates" href="#dates" aria-label="Open select dates — view hours">
+          <span class="card__img" style="background-image:url('assets/img/cards/dates-card.png')" aria-hidden="true"></span>
+          <div class="card__fallback">
+            <span class="card__small">Open</span>
+            <span class="card__big display">Select Dates</span>
+            <div class="dates__list">
+              <div class="dates__row"><span class="dates__month">October</span><br>
+                <span class="dates__nums">11–12, 18–19, 25–26, 31</span></div>
+              <div class="dates__row" style="margin-top:6px"><span class="dates__month">November</span><br>
+                <span class="dates__nums">1–2</span></div>
+            </div>
+            <span class="btn btn--sm">View Hours</span>
           </div>
-          <a class="btn btn--sm" href="#dates">View Hours</a>
-        </article>
+        </a>
 
       </div>
     </div>
@@ -126,19 +130,22 @@
   <!-- ===================== LOCATION STRIP ============================ -->
   <section class="section" id="location" style="padding-top:6px">
     <div class="wrap">
-      <div class="location">
-        <svg class="location__pin" viewBox="0 0 24 36" fill="none" stroke="#ededeb" stroke-width="2" aria-hidden="true">
-          <path d="M12 1C6 1 2 5 2 11c0 7 10 23 10 23s10-16 10-23C22 5 18 1 12 1z"/>
-          <circle cx="12" cy="11" r="4"/>
-        </svg>
-        <div class="location__body">
-          <p class="location__small">Located in</p>
-          <h2 class="location__big display">Scott, Louisiana</h2>
-          <p class="location__sub">Acadiana's premier haunted attraction!</p>
-          <a class="btn btn--sm" data-directions href="#">Get Directions</a>
+      <a class="location" data-directions href="#" aria-label="Get directions to Fright Trail in Scott, Louisiana">
+        <span class="location__img" style="background-image:url('assets/img/location/scott-location-strip.png')" aria-hidden="true"></span>
+        <div class="location__fallback">
+          <svg class="location__pin" viewBox="0 0 24 36" fill="none" stroke="#ededeb" stroke-width="2" aria-hidden="true">
+            <path d="M12 1C6 1 2 5 2 11c0 7 10 23 10 23s10-16 10-23C22 5 18 1 12 1z"/>
+            <circle cx="12" cy="11" r="4"/>
+          </svg>
+          <div class="location__body">
+            <p class="location__small">Located in</p>
+            <h2 class="location__big display">Scott, Louisiana</h2>
+            <p class="location__sub">Acadiana's premier haunted attraction!</p>
+            <span class="btn btn--sm">Get Directions</span>
+          </div>
+          <div class="location__sign display">FRIGHT<br>TRAIL</div>
         </div>
-        <div class="location__sign display">FRIGHT<br>TRAIL</div>
-      </div>
+      </a>
     </div>
   </section>
 
@@ -180,20 +187,32 @@
     <div class="wrap">
       <div class="features">
         <div class="feature">
-          <svg class="feature__icon" viewBox="0 0 48 48" fill="none" stroke="#ededeb" stroke-width="2"><path d="M24 6c-9 0-15 7-15 16 0 6 3 10 6 12v6c0 2 2 4 4 4h10c2 0 4-2 4-4v-6c3-2 6-6 6-12 0-9-6-16-15-16z"/><circle cx="18" cy="22" r="3" fill="#ededeb"/><circle cx="30" cy="22" r="3" fill="#ededeb"/></svg>
-          <div class="feature__txt"><strong>20 Acres</strong><span>of Fear</span></div>
+          <span class="feature__img" style="background-image:url('assets/img/features/acres-of-fear.png')" aria-hidden="true"></span>
+          <div class="feature__fallback">
+            <svg class="feature__icon" viewBox="0 0 48 48" fill="none" stroke="#ededeb" stroke-width="2"><path d="M24 6c-9 0-15 7-15 16 0 6 3 10 6 12v6c0 2 2 4 4 4h10c2 0 4-2 4-4v-6c3-2 6-6 6-12 0-9-6-16-15-16z"/><circle cx="18" cy="22" r="3" fill="#ededeb"/><circle cx="30" cy="22" r="3" fill="#ededeb"/></svg>
+            <div class="feature__txt"><strong>20 Acres</strong><span>of Fear</span></div>
+          </div>
         </div>
         <div class="feature">
-          <svg class="feature__icon" viewBox="0 0 48 48" fill="none" stroke="#ededeb" stroke-width="2"><circle cx="24" cy="24" r="18"/><path d="M12 12l24 24"/></svg>
-          <div class="feature__txt"><strong>Not</strong><span>Recommended for Children</span></div>
+          <span class="feature__img" style="background-image:url('assets/img/features/not-for-children.png')" aria-hidden="true"></span>
+          <div class="feature__fallback">
+            <svg class="feature__icon" viewBox="0 0 48 48" fill="none" stroke="#ededeb" stroke-width="2"><circle cx="24" cy="24" r="18"/><path d="M12 12l24 24"/></svg>
+            <div class="feature__txt"><strong>Not</strong><span>Recommended for Children</span></div>
+          </div>
         </div>
         <div class="feature">
-          <svg class="feature__icon" viewBox="0 0 48 48" fill="none" stroke="#ededeb" stroke-width="2"><path d="M24 5l15 6v10c0 11-7 18-15 22-8-4-15-11-15-22V11z"/><path d="M17 24l5 5 9-10"/></svg>
-          <div class="feature__txt"><strong>Security</strong><span>On Site</span></div>
+          <span class="feature__img" style="background-image:url('assets/img/features/security-on-site.png')" aria-hidden="true"></span>
+          <div class="feature__fallback">
+            <svg class="feature__icon" viewBox="0 0 48 48" fill="none" stroke="#ededeb" stroke-width="2"><path d="M24 5l15 6v10c0 11-7 18-15 22-8-4-15-11-15-22V11z"/><path d="M17 24l5 5 9-10"/></svg>
+            <div class="feature__txt"><strong>Security</strong><span>On Site</span></div>
+          </div>
         </div>
-        <a class="feature" href="volunteer.html">
-          <svg class="feature__icon" viewBox="0 0 48 48" fill="none" stroke="#ededeb" stroke-width="2"><path d="M24 42s-14-9-14-20a8 8 0 0114-5 8 8 0 0114 5c0 11-14 20-14 20z"/></svg>
-          <div class="feature__txt"><strong>Volunteer</strong><span>If You Dare</span></div>
+        <a class="feature" href="volunteer.html" aria-label="Volunteer if you dare">
+          <span class="feature__img" style="background-image:url('assets/img/features/volunteer.png')" aria-hidden="true"></span>
+          <div class="feature__fallback">
+            <svg class="feature__icon" viewBox="0 0 48 48" fill="none" stroke="#ededeb" stroke-width="2"><path d="M24 42s-14-9-14-20a8 8 0 0114-5 8 8 0 0114 5c0 11-14 20-14 20z"/></svg>
+            <div class="feature__txt"><strong>Volunteer</strong><span>If You Dare</span></div>
+          </div>
         </a>
       </div>
     </div>

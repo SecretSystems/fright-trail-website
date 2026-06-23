@@ -314,6 +314,52 @@ button{ font-family:inherit; cursor:pointer; color:inherit; background:none; bor
   pointer-events:none; filter:grayscale(1) drop-shadow(0 0 6px #000);
 }
 .card--merch .card__art{ width:96px; bottom:10px; right:10px; }
+
+/* ============================================================
+   REAL IMAGE ASSET LAYERS (with graceful CSS fallback)
+   Each section shows a real PNG via background-image. Background
+   images fail silently (no console error), so when a file is
+   missing the CSS/SVG fallback underneath shows through instead.
+   ============================================================ */
+.card__img,
+.location__img,
+.feature__img,
+.vthumb__img{
+  position:absolute; inset:0;
+  background-size:cover; background-position:center; background-repeat:no-repeat;
+  pointer-events:none;
+}
+/* image layer sits ABOVE its fallback so, when present, it fully covers it */
+.card__img{ z-index:2; }
+.card__fallback{
+  position:relative; z-index:1;
+  display:flex; flex-direction:column; flex:1 1 auto;
+}
+.card__fallback .btn{ margin-top:auto; align-self:flex-start; }
+
+.location__img{ z-index:3; }
+.location__fallback{
+  position:relative; z-index:1;
+  display:flex; align-items:center; gap:22px; flex-wrap:wrap; width:100%;
+}
+
+.feature__img{ z-index:2; }
+.feature__fallback{
+  position:relative; z-index:1;
+  display:flex; align-items:flex-end; gap:12px; width:100%;
+}
+
+/* video thumbnails: generated face is the base/fallback, real photo overlays */
+.vthumb__face{ position:absolute; inset:0; z-index:0; }
+.vthumb__face svg{ width:100%; height:100%; display:block; }
+.vthumb__img{ z-index:1; }
+.vthumb__grade{
+  position:absolute; left:0; bottom:0; z-index:2;
+  font-family:var(--label); font-weight:700; letter-spacing:.16em;
+  text-transform:uppercase; font-size:.52rem; color:var(--bone);
+  background:rgba(0,0,0,.66); padding:3px 7px;
+}
+.vthumb__play{ z-index:3; }
 .card--dates .dates__list{ margin:6px 0 14px; }
 .card--dates .dates__row{ font-family:var(--label); letter-spacing:.06em; }
 .card--dates .dates__month{ color:var(--ash); font-size:.7rem; text-transform:uppercase; letter-spacing:.2em; }

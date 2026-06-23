@@ -200,9 +200,13 @@
     DATA.videos.forEach(function (v, i) {
       var tile = el("button", "vthumb");
       tile.setAttribute("aria-label", "Play " + v.title);
-      var inner = v.thumb
-        ? '<img src="' + v.thumb + '" alt="' + v.title + '">'
-        : buildFace(i);
+      // Generated scary-face is the base layer (and the graceful fallback).
+      // A real thumbnail, if present, is layered on top via background-image
+      // (background images fail silently — no console error if missing).
+      var inner = '<span class="vthumb__face">' + buildFace(i) + "</span>";
+      if (v.thumb) {
+        inner += '<span class="vthumb__img" style="background-image:url(\'' + v.thumb + '\')"></span>';
+      }
       inner += '<span class="vthumb__grade">REAL FEAR</span>';
       inner += '<div class="vthumb__play">' + SVG.play + "</div>";
       tile.innerHTML = inner;
