@@ -35,47 +35,20 @@
     </nav>
   </header>
 
-  <!-- ============================= HERO ============================== -->
-  <section class="hero">
-    <div class="hero__smoke" aria-hidden="true"></div>
-    <div class="hero__inner">
-      <div class="hero__copy">
-        <p class="hero__eyebrow">Twenty Acres of</p>
-        <h1 class="hero__title display">HAUNTED<br>WOODS</h1>
-        <div class="hero__actions">
-          <a class="btn btn--solid" href="tickets.html">Buy Tickets</a>
-          <a class="btn" href="#videos">Watch Video</a>
-        </div>
-      </div>
-
-      <div class="hero__art" aria-hidden="true">
-        <!-- spiderweb (corner) -->
-        <svg class="hero__web" viewBox="0 0 120 120" fill="none" stroke="#cfccc4" stroke-width="1.1">
-          <path d="M120 0 L0 120 M120 0 L60 0 M120 0 L120 60 M120 0 L20 0 M120 0 L120 20"/>
-          <path d="M120 0 L8 50 M120 0 L50 8 M120 0 L4 90 M120 0 L90 4"/>
-          <path d="M104 0 Q100 16 84 16 M84 0 Q80 32 50 32 M64 0 Q58 50 14 50"/>
-          <path d="M120 16 Q104 20 104 36 M120 36 Q88 40 88 70 M120 64 Q70 58 70 104"/>
-        </svg>
-
-        <!-- skull (placeholder horror art — swap for a real poster image later) -->
-        <svg class="hero__skull" viewBox="0 0 300 320" fill="none">
-          <defs>
-            <radialGradient id="bone" cx="50%" cy="40%" r="70%">
-              <stop offset="0%" stop-color="#cfccc4"/>
-              <stop offset="60%" stop-color="#8a877f"/>
-              <stop offset="100%" stop-color="#2a2a27"/>
-            </radialGradient>
-          </defs>
-          <path fill="url(#bone)" d="M150 20c-70 0-110 48-110 116 0 38 16 64 34 78 6 5 8 12 8 22v18c0 12 10 20 24 20h12v-26h12v26h20v-26h12v26h12c14 0 24-8 24-20v-18c0-10 2-17 8-22 18-14 34-40 34-78C260 68 220 20 150 20z"/>
-          <ellipse cx="108" cy="150" rx="30" ry="34" fill="#0a0a0a"/>
-          <ellipse cx="192" cy="150" rx="30" ry="34" fill="#0a0a0a"/>
-          <ellipse cx="116" cy="146" rx="9" ry="10" fill="#f2f0ea"/>
-          <ellipse cx="184" cy="146" rx="9" ry="10" fill="#f2f0ea"/>
-          <path d="M150 178l-16 40h32z" fill="#0a0a0a"/>
-        </svg>
-
-        <p class="hero__shock display">SHOCK<br>AFTER<br>SHOCK!</p>
-      </div>
+  <!-- ============================= HERO ==============================
+       The hero is the finished poster artwork (assets/img/hero.png). It
+       already contains the "Twenty Acres of Haunted Woods" headline and the
+       Buy Tickets / Watch Video buttons, so we overlay transparent clickable
+       hotspots on those buttons to keep them functional. If hero.png is not
+       present yet, it falls back to the hand-built SVG illustration. -->
+  <section class="hero" aria-label="Twenty Acres of Haunted Woods — Shock after shock">
+    <h1 class="sr-only">Fright Trail — Twenty Acres of Haunted Woods. Real people. Real fear. Shock after shock.</h1>
+    <img class="hero__bg" src="assets/img/hero.png"
+         onerror="this.onerror=null;this.src='assets/img/hero-haunted-woods.svg';this.classList.add('hero__bg--fallback')"
+         alt="Fright Trail haunted attraction poster: a giant reaching ghoul with glowing eyes, a vampire, a skeleton and a spiderweb. Twenty Acres of Haunted Woods. Shock after shock.">
+    <div class="hero__actions">
+      <a class="btn btn--solid" href="tickets.html">Buy Tickets</a>
+      <a class="btn" href="#videos">Watch Video</a>
     </div>
   </section>
 
@@ -101,9 +74,20 @@
           <span class="card__small">Get Your</span>
           <span class="card__big display">Tickets</span>
           <p class="card__sub">Online now!</p>
-          <svg class="card__art" viewBox="0 0 120 120" fill="none" stroke="#fff" stroke-width="3">
-            <path d="M62 64l40-22M44 92l52-30" /><circle cx="40" cy="96" r="8"/><circle cx="60" cy="68" r="6"/>
-            <path d="M30 60c0-22 18-40 40-40" /><path d="M70 20l8 8-8 8"/>
+          <svg class="card__art" viewBox="0 0 130 150" fill="#cfccc4" stroke="#000" stroke-width="1.4" aria-hidden="true">
+            <!-- skull -->
+            <path d="M92 14c-15 0-24 11-24 25 0 8 3 14 8 17v7c0 3 3 5 6 5h20c3 0 6-2 6-5v-7c5-3 8-9 8-17 0-14-9-25-24-25z"/>
+            <ellipse cx="84" cy="38" rx="4.5" ry="6" fill="#000"/><ellipse cx="100" cy="38" rx="4.5" ry="6" fill="#000"/>
+            <path d="M92 44l-3 8h6z" fill="#000"/>
+            <g stroke="#000" stroke-width="1.2"><path d="M82 56h20M85 56v6M92 56v7M99 56v6"/></g>
+            <!-- spine -->
+            <rect x="89" y="68" width="6" height="34" rx="3"/>
+            <!-- ribs -->
+            <g stroke="#cfccc4" stroke-width="3" fill="none"><path d="M92 76q-14 3-16 13M92 84q-15 3-17 14M92 92q-13 3-15 12"/></g>
+            <!-- pointing arm + bony finger aimed at the word "Tickets" -->
+            <path d="M90 74 L34 104" stroke="#cfccc4" stroke-width="7" stroke-linecap="round"/>
+            <path d="M34 104 l-13 4" stroke="#cfccc4" stroke-width="4" stroke-linecap="round"/>
+            <path d="M22 109 l-7 0M22 105 l-6 -3M23 113 l-6 3" stroke="#cfccc4" stroke-width="2.4" stroke-linecap="round"/>
           </svg>
           <a class="btn btn--solid btn--sm" href="tickets.html">Buy Now</a>
         </article>
@@ -113,8 +97,11 @@
           <span class="card__small">Get Your</span>
           <span class="card__big display">Merch</span>
           <p class="card__sub">Tees, hoodies, posters &amp; more.</p>
-          <svg class="card__art" viewBox="0 0 120 120" fill="none" stroke="#fff" stroke-width="3">
-            <path d="M40 30l20 10 20-10 22 14-12 16-10-6v46H40V54l-10 6-12-16z"/>
+          <svg class="card__art" viewBox="0 0 120 120" fill="#15150f" stroke="#cfccc4" stroke-width="2.4" aria-hidden="true">
+            <!-- t-shirt -->
+            <path d="M44 22 L28 30 l8 18 9-5 v52 h30 v-52 l9 5 8-18 -16-8 c-3 9-26 9-29 0z"/>
+            <text x="60" y="64" text-anchor="middle" fill="#cfccc4" stroke="none" font-family="Metal Mania, cursive" font-size="13">FRIGHT</text>
+            <text x="60" y="80" text-anchor="middle" fill="#cfccc4" stroke="none" font-family="Metal Mania, cursive" font-size="13">TRAIL</text>
           </svg>
           <a class="btn btn--solid btn--sm" href="merch.html">Shop Now</a>
         </article>

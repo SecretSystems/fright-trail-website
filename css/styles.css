@@ -21,7 +21,9 @@
   --type:    "Special Elite", "Courier New", monospace;
   --label:   "Oswald", "Arial Narrow", sans-serif;
 
-  --maxw: 1140px;
+  /* Narrow single-column "poster" width — makes the whole page read as one
+     tall haunted-attraction print rather than a wide website. */
+  --maxw: 700px;
 }
 
 *{ box-sizing:border-box; margin:0; padding:0; }
@@ -44,16 +46,28 @@ body::before{
   position:fixed; inset:0;
   pointer-events:none;
   z-index:9000;
-  opacity:.10;
+  opacity:.16;
   mix-blend-mode:screen;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
-/* Subtle vignette so the page edges fall into darkness */
+/* Vignette + worn-paper scratches so the page edges fall into darkness and the
+   surface looks like aged printed stock. */
 body::after{
   content:"";
   position:fixed; inset:0;
   pointer-events:none; z-index:8999;
-  background:radial-gradient(120% 90% at 50% 38%, transparent 55%, rgba(0,0,0,.65) 100%);
+  background:
+    radial-gradient(120% 90% at 50% 30%, transparent 48%, rgba(0,0,0,.78) 100%),
+    repeating-linear-gradient(96deg, rgba(255,255,255,.025) 0 1px, transparent 1px 140px),
+    repeating-linear-gradient(-82deg, rgba(0,0,0,.18) 0 1px, transparent 1px 230px);
+}
+/* The poster body sits on a faintly textured charcoal "page" centered in black */
+.poster{
+  max-width:760px; margin:0 auto;
+  background:
+    radial-gradient(100% 40% at 50% 0%, rgba(40,40,38,.5), transparent 60%),
+    #050505;
+  box-shadow:0 0 0 1px #1d1d1b, 0 0 60px rgba(0,0,0,.9);
 }
 
 img{ display:block; max-width:100%; }
@@ -104,38 +118,39 @@ button{ font-family:inherit; cursor:pointer; color:inherit; background:none; bor
   backdrop-filter:blur(2px);
 }
 .nav{
-  display:flex; align-items:center; gap:18px;
-  padding:10px 18px;
-  max-width:1280px; margin:0 auto;
+  display:flex; align-items:center; gap:12px;
+  padding:8px 14px;
+  max-width:760px; margin:0 auto;
 }
 .brand{ display:flex; flex-direction:column; line-height:1; margin-right:auto; }
 .brand__name{
   font-family:var(--display);
-  font-size:1.85rem;
-  letter-spacing:1px;
+  font-size:1.4rem;
+  letter-spacing:.5px;
   color:var(--bone);
   text-shadow:0 2px 0 #000;
 }
 .brand__tag{
   font-family:var(--label);
-  font-size:.55rem;
-  letter-spacing:.22em;
+  font-size:.46rem;
+  letter-spacing:.2em;
   text-transform:uppercase;
   color:var(--ash);
-  margin-top:3px;
+  margin-top:2px;
 }
 .nav__links{
-  display:flex; align-items:center; gap:20px;
+  display:flex; align-items:center; gap:11px;
   list-style:none;
 }
 .nav__links a{
   font-family:var(--label);
   font-weight:600;
-  font-size:.78rem;
-  letter-spacing:.14em;
+  font-size:.62rem;
+  letter-spacing:.1em;
   text-transform:uppercase;
   color:var(--bone-dim);
   position:relative;
+  white-space:nowrap;
   transition:color .15s ease;
 }
 .nav__links a:hover{ color:var(--bone); }
@@ -165,66 +180,32 @@ button{ font-family:inherit; cursor:pointer; color:inherit; background:none; bor
   position:relative;
   border-bottom:1px solid var(--line);
   overflow:hidden;
-  background:
-    radial-gradient(80% 60% at 70% 40%, rgba(60,60,58,.35), transparent 60%),
-    radial-gradient(60% 80% at 80% 90%, rgba(120,120,115,.16), transparent 60%),
-    #000;
+  background:#000;
+  line-height:0; /* kill inline-image gap */
 }
-/* drifting smoke */
-.hero__smoke{
-  position:absolute; inset:0; z-index:0; opacity:.5; pointer-events:none;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0.6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
-  background-size:cover;
-  mix-blend-mode:screen;
-  animation:drift 28s linear infinite alternate;
+/* The finished poster banner, shown full width (ratio ~1.6:1). */
+.hero__bg{
+  display:block; width:100%; height:auto;
+  filter:contrast(1.05);
 }
-@keyframes drift{ from{ transform:translateX(-4%) scale(1.1);} to{ transform:translateX(4%) scale(1.25);} }
+/* soft fade into the page at the very bottom */
+.hero::after{
+  content:""; position:absolute; left:0; right:0; bottom:0; height:54px; z-index:1;
+  pointer-events:none;
+  background:linear-gradient(0deg, #050505, transparent);
+}
+/* real Buy Tickets / Watch Video buttons sit over the open lower-left of the
+   artwork (the smoke beneath "HAUNTED WOODS"), matching the poster layout */
+.hero__actions{
+  position:absolute; left:3.4%; bottom:7%; z-index:3;
+  display:flex; gap:12px; flex-wrap:wrap; line-height:normal;
+}
+.hero__actions .btn{ box-shadow:0 3px 14px rgba(0,0,0,.8); }
 
-.hero__inner{
-  position:relative; z-index:2;
-  max-width:var(--maxw); margin:0 auto;
-  padding:54px 18px 60px;
-  display:grid; grid-template-columns:1.05fr .95fr; gap:20px; align-items:center;
-  min-height:540px;
-}
-.hero__eyebrow{
-  font-family:var(--label); font-weight:600;
-  letter-spacing:.34em; text-transform:uppercase;
-  font-size:clamp(.8rem,2.2vw,1.15rem);
-  color:var(--bone-dim);
-}
-.hero__title{
-  font-family:var(--display);
-  font-size:clamp(3.6rem, 12vw, 8.2rem);
-  line-height:.82;
-  margin:.06em 0 .28em;
-  text-shadow:0 4px 0 #000, 0 0 40px rgba(0,0,0,.9);
-}
-.hero__actions{ display:flex; gap:14px; flex-wrap:wrap; margin-top:8px; }
-
-/* Right-side horror art (placeholder-friendly) */
-.hero__art{
-  position:relative; min-height:380px;
-  display:flex; align-items:center; justify-content:center;
-}
-.hero__skull{
-  width:min(100%, 420px);
-  filter:drop-shadow(0 0 30px rgba(0,0,0,.9)) grayscale(1) contrast(1.15);
-  animation:loom 7s ease-in-out infinite;
-}
-@keyframes loom{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-10px);} }
-.hero__web{
-  position:absolute; top:-18px; right:-10px; width:170px; opacity:.85; z-index:3;
-  filter:drop-shadow(0 0 6px #000);
-}
-.hero__shock{
-  position:absolute; right:8px; bottom:24px; z-index:4;
-  font-family:var(--display);
-  font-size:clamp(1.6rem,4.5vw,2.6rem);
-  line-height:.9; text-align:right;
-  color:var(--bone);
-  text-shadow:0 3px 0 #000, 0 0 20px #000;
-  transform:rotate(-6deg);
+/* screen-reader-only (keeps the H1 for SEO without showing duplicate text) */
+.sr-only{
+  position:absolute !important; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
 }
 
 /* =========================================================================
@@ -304,12 +285,14 @@ button{ font-family:inherit; cursor:pointer; color:inherit; background:none; bor
   position:relative;
   border:1px solid var(--line);
   background:
-    linear-gradient(180deg, rgba(255,255,255,.03), transparent 40%),
+    linear-gradient(180deg, rgba(255,255,255,.04), transparent 40%),
     var(--panel);
-  padding:24px 22px 26px;
-  min-height:230px;
+  padding:20px 18px 22px;
+  min-height:210px;
   display:flex; flex-direction:column;
   overflow:hidden;
+  /* rough double-stroke "printed" edge */
+  box-shadow:inset 0 0 0 1px #000, inset 0 0 0 3px rgba(120,120,115,.12);
   transition:border-color .2s ease, transform .15s ease;
 }
 .card:hover{ border-color:var(--bone-dim); transform:translateY(-3px); }
@@ -327,9 +310,10 @@ button{ font-family:inherit; cursor:pointer; color:inherit; background:none; bor
 .card__sub{ color:var(--bone-dim); font-size:.92rem; }
 .card .btn{ margin-top:auto; align-self:flex-start; }
 .card__art{
-  position:absolute; right:10px; bottom:10px; width:120px; opacity:.18;
-  pointer-events:none; filter:grayscale(1);
+  position:absolute; right:6px; bottom:6px; width:108px; opacity:.42;
+  pointer-events:none; filter:grayscale(1) drop-shadow(0 0 6px #000);
 }
+.card--merch .card__art{ width:96px; bottom:10px; right:10px; }
 .card--dates .dates__list{ margin:6px 0 14px; }
 .card--dates .dates__row{ font-family:var(--label); letter-spacing:.06em; }
 .card--dates .dates__month{ color:var(--ash); font-size:.7rem; text-transform:uppercase; letter-spacing:.2em; }
@@ -461,6 +445,9 @@ button{ font-family:inherit; cursor:pointer; color:inherit; background:none; bor
   align-items:center; justify-content:center; gap:14px; text-align:center; padding:24px;
   color:var(--bone-dim); font-family:var(--label); letter-spacing:.1em;
 }
+.modal__ph .vthumb__svg{ width:120px; height:160px; border:1px solid var(--line); }
+.modal__ph-txt{ display:flex; flex-direction:column; gap:6px; text-transform:uppercase; letter-spacing:.2em; }
+.modal__ph-txt span{ font-size:.66rem; letter-spacing:.14em; color:var(--ash); text-transform:none; }
 .modal__close{
   position:absolute; top:-14px; right:-14px; z-index:5;
   width:42px; height:42px; border:2px solid var(--bone); background:#000;
