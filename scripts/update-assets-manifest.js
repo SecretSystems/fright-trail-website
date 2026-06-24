@@ -53,6 +53,14 @@ function toUrl(relPath) {
   return relPath.split("/").map(encodeURIComponent).join("/");
 }
 
+/* browser-safe URL + a cache-busting ?v=<modified-time> so a replaced image is
+   never hidden by a stale browser / VS Code Live Preview cache. The token only
+   changes when the file itself changes, so re-running on an unchanged folder
+   produces no diff. */
+function toVersionedUrl(relPath, mtimeMs) {
+  return toUrl(relPath) + "?v=" + Math.round(mtimeMs);
+}
+
 function isValidImage(name) {
   if (name.startsWith(".")) return false;                 // hidden
   if (IGNORE.has(name.toLowerCase())) return false;       // README / system files
@@ -71,7 +79,7 @@ function newestImage(absDir) {
       return { name: d.name, mtime: fs.statSync(full).mtimeMs };
     })
     .sort(function (a, b) { return b.mtime - a.mtime; });
-  return imgs.length ? imgs[0].name : null;
+  return imgs.length ? imgs[0] : null;   // { name, mtime } | null
 }
 
 /* read previous manifest (best effort) so we can keep a still-valid path */
@@ -112,19 +120,19 @@ function main() {
 
   SECTIONS.forEach(function (sec) {
     const absDir = path.join(ROOT, sec.dir);
-    const file = newestImage(absDir);
+    const found = newestImage(absDir);
     let url = null;
     let note = "";
 
-    if (file) {
-      url = toUrl(sec.dir + "/" + file);
-      note = file;
+    if (found) {
+      url = toVersionedUrl(sec.dir + "/" + found.name, found.mtime);
+      note = found.name;
     } else {
       // keep previous manifest path if that file still exists on disk
       const prevUrl = getByPath(prev, sec.key);
-      const prevRel = urlToRel(prevUrl);
+      const prevRel = urlToRel(prevUrl ? prevUrl.split("?")[0] : null);
       if (prevRel && fs.existsSync(path.join(ROOT, prevRel))) {
-        url = prevUrl;
+        url = toVersionedUrl(prevRel, fs.statSync(path.join(ROOT, prevRel)).mtimeMs);
         note = "(kept previous: " + path.basename(prevRel) + ")";
       } else {
         url = null;

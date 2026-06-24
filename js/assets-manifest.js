@@ -10,28 +10,28 @@
    gracefully falls back to the section's built-in CSS/SVG art.
    ========================================================================== */
 window.FRIGHT_ASSETS = {
-  hero: "assets/img/hero/main/image.png",
+  hero: "assets/img/hero/main/image.png?v=1782199093007",
 
   cards: {
-    tickets: "assets/img/cards/tickets/Screenshot%202026-06-23%20181322.png",
-    merch:   "assets/img/cards/merch/Screenshot%202026-06-23%20181918.png",
-    dates:   "assets/img/cards/dates/Screenshot%202026-06-23%20181933.png"
+    tickets: "assets/img/cards/tickets/Screenshot%202026-06-23%20181322.png?v=1782256402275",
+    merch:   "assets/img/cards/merch/Screenshot%202026-06-23%20181918.png?v=1782256758415",
+    dates:   "assets/img/cards/dates/Screenshot%202026-06-23%20181933.png?v=1782256774064"
   },
 
-  location: "assets/img/location/main/Screenshot%202026-06-23%20181958.png",
+  location: "assets/img/location/main/Screenshot%202026-06-23%20181958.png?v=1782256798913",
 
   features: {
-    acresOfFear:    "assets/img/features/acres-of-fear/Screenshot%202026-06-23%20182127.png",
-    notForChildren: "assets/img/features/not-for-children/Screenshot%202026-06-23%20182110.png",
-    securityOnSite: "assets/img/features/security-on-site/Screenshot%202026-06-23%20182052.png",
-    volunteer:      "assets/img/features/volunteer/Screenshot%202026-06-23%20182038.png"
+    acresOfFear:    "assets/img/features/acres-of-fear/Screenshot%202026-06-23%20182127.png?v=1782256887400",
+    notForChildren: "assets/img/features/not-for-children/Screenshot%202026-06-23%20182110.png?v=1782256870989",
+    securityOnSite: "assets/img/features/security-on-site/Screenshot%202026-06-23%20182052.png?v=1782256853094",
+    volunteer:      "assets/img/features/volunteer/Screenshot%202026-06-23%20182038.png?v=1782256838794"
   },
 
   videos: [
-    "assets/img/videos/fear-01/image.png",
-    "assets/img/videos/fear-02/image.png",
-    "assets/img/videos/fear-03/image.png",
-    "assets/img/videos/fear-04/image.png",
-    "assets/img/videos/fear-05/image.png"
+    "assets/img/videos/fear-01/image.png?v=1782257596318",
+    "assets/img/videos/fear-02/image.png?v=1782257596535",
+    "assets/img/videos/fear-03/image.png?v=1782257596754",
+    "assets/img/videos/fear-04/image.png?v=1782257596979",
+    "assets/img/videos/fear-05/image.png?v=1782257597190"
   ]
 };
