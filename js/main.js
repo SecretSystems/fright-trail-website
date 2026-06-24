@@ -130,12 +130,33 @@
   function initAssets() {
     document.querySelectorAll("[data-asset]").forEach(function (node) {
       var url = getAsset(node.getAttribute("data-asset"));
-      if (!url) return;
-      if (node.tagName === "IMG") {
+      var isImg = node.tagName === "IMG";
+      var host = node.closest(".card, .location, .feature");
+
+      // Hero: a missing image swaps to the hand-built SVG illustration.
+      if (isImg && node.classList.contains("hero__bg")) {
         node.onerror = function () {
           node.onerror = null;
           node.src = "assets/img/hero-haunted-woods.svg";
           node.classList.add("hero__bg--fallback");
+        };
+        if (url) node.src = url; else node.onerror();
+        return;
+      }
+
+      // No image for this section -> reveal the built-in CSS/SVG fallback art.
+      if (!url) {
+        if (host) host.classList.add("is-noimg");
+        if (isImg) node.style.display = "none";
+        return;
+      }
+
+      if (isImg) {
+        // Section <img> shown full-size; if it fails, hide it and show fallback.
+        node.onerror = function () {
+          node.onerror = null;
+          node.style.display = "none";
+          if (host) host.classList.add("is-noimg");
         };
         node.src = url;
       } else {
