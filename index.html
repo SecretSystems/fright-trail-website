@@ -61,9 +61,9 @@
     </div>
   </section>
 
-  <!-- ===================== PROMO CARDS =============================== -->
-  <section class="section" style="padding-top:6px">
-    <div class="wrap">
+  <!-- ===== POSTER BLOCK: promo cards · location strip · feature cards ===== -->
+  <section class="section poster">
+    <div class="wrap poster__stack">
       <div class="cards">
 
         <!-- Tickets — whole card links to checkout. card__img shows the real
@@ -122,13 +122,9 @@
         </a>
 
       </div>
-    </div>
-  </section>
 
-  <!-- ===================== LOCATION STRIP ============================ -->
-  <section class="section" id="location" style="padding-top:6px">
-    <div class="wrap">
-      <a class="location" data-directions href="#" aria-label="Get directions to Fright Trail in Scott, Louisiana">
+      <!-- location strip -->
+      <a class="location" id="location" data-directions href="#" aria-label="Get directions to Fright Trail in Scott, Louisiana">
         <img class="location__img" data-asset="location" alt="Fright Trail — located in Scott, Louisiana. Get directions.">
         <div class="location__fallback">
           <svg class="location__pin" viewBox="0 0 24 36" fill="none" stroke="#ededeb" stroke-width="2" aria-hidden="true">
@@ -144,6 +140,39 @@
           <div class="location__sign display">FRIGHT<br>TRAIL</div>
         </div>
       </a>
+
+      <!-- feature cards -->
+      <div class="features">
+        <div class="feature">
+          <img class="feature__img" data-asset="features.acresOfFear" alt="20 acres of fear">
+          <div class="feature__fallback">
+            <svg class="feature__icon" viewBox="0 0 48 48" fill="none" stroke="#ededeb" stroke-width="2"><path d="M24 6c-9 0-15 7-15 16 0 6 3 10 6 12v6c0 2 2 4 4 4h10c2 0 4-2 4-4v-6c3-2 6-6 6-12 0-9-6-16-15-16z"/><circle cx="18" cy="22" r="3" fill="#ededeb"/><circle cx="30" cy="22" r="3" fill="#ededeb"/></svg>
+            <div class="feature__txt"><strong>20 Acres</strong><span>of Fear</span></div>
+          </div>
+        </div>
+        <div class="feature">
+          <img class="feature__img" data-asset="features.notForChildren" alt="Not recommended for children">
+          <div class="feature__fallback">
+            <svg class="feature__icon" viewBox="0 0 48 48" fill="none" stroke="#ededeb" stroke-width="2"><circle cx="24" cy="24" r="18"/><path d="M12 12l24 24"/></svg>
+            <div class="feature__txt"><strong>Not</strong><span>Recommended for Children</span></div>
+          </div>
+        </div>
+        <div class="feature">
+          <img class="feature__img" data-asset="features.securityOnSite" alt="Security on site">
+          <div class="feature__fallback">
+            <svg class="feature__icon" viewBox="0 0 48 48" fill="none" stroke="#ededeb" stroke-width="2"><path d="M24 5l15 6v10c0 11-7 18-15 22-8-4-15-11-15-22V11z"/><path d="M17 24l5 5 9-10"/></svg>
+            <div class="feature__txt"><strong>Security</strong><span>On Site</span></div>
+          </div>
+        </div>
+        <a class="feature" href="volunteer.html" aria-label="Volunteer if you dare">
+          <img class="feature__img" data-asset="features.volunteer" alt="Volunteer if you dare">
+          <div class="feature__fallback">
+            <svg class="feature__icon" viewBox="0 0 48 48" fill="none" stroke="#ededeb" stroke-width="2"><path d="M24 42s-14-9-14-20a8 8 0 0114-5 8 8 0 0114 5c0 11-14 20-14 20z"/></svg>
+            <div class="feature__txt"><strong>Volunteer</strong><span>If You Dare</span></div>
+          </div>
+        </a>
+      </div>
+
     </div>
   </section>
 
@@ -177,42 +206,6 @@
     <div class="wrap">
       <h2 class="section__kicker">From the Woods</h2>
       <div class="gallery" id="gallery-grid"><!-- JS injects tiles --></div>
-    </div>
-  </section>
-
-  <!-- ===================== FEATURE CARDS ============================= -->
-  <section class="section" style="padding-top:6px">
-    <div class="wrap">
-      <div class="features">
-        <div class="feature">
-          <img class="feature__img" data-asset="features.acresOfFear" alt="20 acres of fear">
-          <div class="feature__fallback">
-            <svg class="feature__icon" viewBox="0 0 48 48" fill="none" stroke="#ededeb" stroke-width="2"><path d="M24 6c-9 0-15 7-15 16 0 6 3 10 6 12v6c0 2 2 4 4 4h10c2 0 4-2 4-4v-6c3-2 6-6 6-12 0-9-6-16-15-16z"/><circle cx="18" cy="22" r="3" fill="#ededeb"/><circle cx="30" cy="22" r="3" fill="#ededeb"/></svg>
-            <div class="feature__txt"><strong>20 Acres</strong><span>of Fear</span></div>
-          </div>
-        </div>
-        <div class="feature">
-          <img class="feature__img" data-asset="features.notForChildren" alt="Not recommended for children">
-          <div class="feature__fallback">
-            <svg class="feature__icon" viewBox="0 0 48 48" fill="none" stroke="#ededeb" stroke-width="2"><circle cx="24" cy="24" r="18"/><path d="M12 12l24 24"/></svg>
-            <div class="feature__txt"><strong>Not</strong><span>Recommended for Children</span></div>
-          </div>
-        </div>
-        <div class="feature">
-          <img class="feature__img" data-asset="features.securityOnSite" alt="Security on site">
-          <div class="feature__fallback">
-            <svg class="feature__icon" viewBox="0 0 48 48" fill="none" stroke="#ededeb" stroke-width="2"><path d="M24 5l15 6v10c0 11-7 18-15 22-8-4-15-11-15-22V11z"/><path d="M17 24l5 5 9-10"/></svg>
-            <div class="feature__txt"><strong>Security</strong><span>On Site</span></div>
-          </div>
-        </div>
-        <a class="feature" href="volunteer.html" aria-label="Volunteer if you dare">
-          <img class="feature__img" data-asset="features.volunteer" alt="Volunteer if you dare">
-          <div class="feature__fallback">
-            <svg class="feature__icon" viewBox="0 0 48 48" fill="none" stroke="#ededeb" stroke-width="2"><path d="M24 42s-14-9-14-20a8 8 0 0114-5 8 8 0 0114 5c0 11-14 20-14 20z"/></svg>
-            <div class="feature__txt"><strong>Volunteer</strong><span>If You Dare</span></div>
-          </div>
-        </a>
-      </div>
     </div>
   </section>
 

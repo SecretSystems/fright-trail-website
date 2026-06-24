@@ -325,12 +325,12 @@ button{ font-family:inherit; cursor:pointer; color:inherit; background:none; bor
    images fail silently (no console error), so when a file is
    missing the CSS/SVG fallback underneath shows through instead.
    ============================================================ */
-/* Uploaded section artwork is shown FULL — never cropped. The <img> sets the
-   box height (object-fit:contain is a no-op safety net since height is auto). */
+/* Uploaded section artwork is shown FULL — never cropped. Each image fills its
+   fixed-ratio box (set on the .poster boxes below) via object-fit:contain. */
 .card__img,
 .location__img,
 .feature__img{
-  display:block; width:100%; height:auto;
+  display:block; width:100%; height:100%;
   object-fit:contain;
 }
 
@@ -353,6 +353,34 @@ button{ font-family:inherit; cursor:pointer; color:inherit; background:none; bor
 .feature.is-noimg .feature__fallback{
   display:flex; align-items:flex-end; gap:12px; width:100%;
   padding:18px 16px;
+}
+
+/* =========================================================================
+   POSTER BLOCK — promo cards · location strip · feature cards as ONE unit.
+   Shared width (the .wrap), tight consistent gaps, fixed-ratio boxes so every
+   image is fully visible (object-fit:contain) and all edges line up.
+   ====================================================================== */
+.poster{ padding:8px 0 38px; }
+.poster__stack{ display:flex; flex-direction:column; gap:8px; }
+.poster .card,
+.poster .feature,
+.poster .location{ display:block; }
+
+/* 3 equal square promo tiles */
+.poster .cards{ grid-template-columns:repeat(3, 1fr); gap:8px; }
+.poster .card{ aspect-ratio:1 / 1; padding:0; min-height:0; }
+
+/* wide location banner, same total width as the cards row */
+.poster .location{ aspect-ratio:5 / 1; }
+
+/* 4 equal horizontal feature tiles, locked to the same grid width */
+.poster .features{ grid-template-columns:repeat(4, 1fr); gap:6px; }
+.poster .feature{ aspect-ratio:3 / 2; }
+
+/* keep the poster grid like the printed poster on phones; only relax the 4
+   feature columns to 2 when very narrow */
+@media (max-width:520px){
+  .poster .features{ grid-template-columns:repeat(2, 1fr); }
 }
 
 /* video thumbnails: generated face base + optional photo overlay (still cover,
