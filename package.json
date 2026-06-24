@@ -1,0 +1,9 @@
+{
+  "name": "fright-trail-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Fright Trail — Twenty Acres of Haunted Woods (static site)",
+  "scripts": {
+    "update-assets": "node scripts/update-assets-manifest.js"
+  }
+}

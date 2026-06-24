@@ -1,34 +1,30 @@
 /* =============================================================================
-   FRIGHT TRAIL — image asset manifest
+   FRIGHT TRAIL — image asset manifest  (AUTO-GENERATED)
    -----------------------------------------------------------------------------
-   HOW TO SWAP AN IMAGE (no code changes needed):
-     1. Open the section's folder under assets/img/...
-     2. Drop your photo in and name it exactly  image.png
-     3. Refresh. Done.
+   DO NOT EDIT BY HAND. Regenerate with:
+       node scripts/update-assets-manifest.js
 
-   The browser can't list a folder on GitHub Pages, so this manifest names the
-   one file the site loads from each folder. Each folder already contains an
-   image.png placeholder — just overwrite it.
-
-   If an image.png is missing, the section gracefully falls back to its built-in
-   CSS / SVG art (the page never breaks).
+   To change an image: drop any image (png/jpg/jpeg/webp/gif) into its section
+   folder under assets/img/... (any filename) and re-run the script above.
+   If several images are in a folder, the newest one is used. A missing image
+   gracefully falls back to the section's built-in CSS/SVG art.
    ========================================================================== */
 window.FRIGHT_ASSETS = {
   hero: "assets/img/hero/main/image.png",
 
   cards: {
-    tickets: "assets/img/cards/tickets/image.png",
-    merch:   "assets/img/cards/merch/image.png",
-    dates:   "assets/img/cards/dates/image.png"
+    tickets: "assets/img/cards/tickets/Screenshot%202026-06-23%20181322.png",
+    merch:   "assets/img/cards/merch/Screenshot%202026-06-23%20181918.png",
+    dates:   "assets/img/cards/dates/Screenshot%202026-06-23%20181933.png"
   },
 
-  location: "assets/img/location/main/image.png",
+  location: "assets/img/location/main/Screenshot%202026-06-23%20181958.png",
 
   features: {
-    acresOfFear:    "assets/img/features/acres-of-fear/image.png",
-    notForChildren: "assets/img/features/not-for-children/image.png",
-    securityOnSite: "assets/img/features/security-on-site/image.png",
-    volunteer:      "assets/img/features/volunteer/image.png"
+    acresOfFear:    "assets/img/features/acres-of-fear/Screenshot%202026-06-23%20182127.png",
+    notForChildren: "assets/img/features/not-for-children/Screenshot%202026-06-23%20182110.png",
+    securityOnSite: "assets/img/features/security-on-site/Screenshot%202026-06-23%20182052.png",
+    volunteer:      "assets/img/features/volunteer/Screenshot%202026-06-23%20182038.png"
   },
 
   videos: [
