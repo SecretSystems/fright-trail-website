@@ -36,13 +36,18 @@
   </header>
 
   <!-- ============================= HERO ==============================
-       Full-width hero poster image (keeps its aspect ratio). The artwork
-       already contains the "Twenty Acres of Haunted Woods" headline, so we
-       only overlay the functional Buy Tickets / Watch Video buttons. If the
-       PNG is missing it gracefully falls back to the hand-built SVG. -->
+       Full-width hero. Plays the animated MP4 from assets/img/hero/main/
+       (autoplay, muted, loop, playsinline). The <source> is injected by JS
+       from window.FRIGHT_ASSETS.heroVideo so the filename never has to be
+       renamed. The poster + inner <img> are the hand-built SVG fallback shown
+       before the video loads or if it can't play. -->
   <section class="hero" aria-label="Twenty Acres of Haunted Woods — Shock after shock">
     <h1 class="sr-only">Fright Trail — Twenty Acres of Haunted Woods. Real people. Real fear. Shock after shock.</h1>
-    <img class="hero__bg" data-asset="hero" alt="Fright Trail haunted attraction poster: a giant reaching ghoul with glowing eyes, a vampire, a skeleton and a spiderweb. Twenty Acres of Haunted Woods. Shock after shock.">
+    <video class="hero__bg" data-hero-video autoplay muted loop playsinline preload="metadata"
+           poster="assets/img/hero-haunted-woods.svg"
+           aria-label="Fright Trail — Twenty Acres of Haunted Woods animation">
+      <img class="hero__bg" src="assets/img/hero-haunted-woods.svg" alt="Fright Trail haunted attraction poster: a giant reaching ghoul with glowing eyes, a vampire, a skeleton and a spiderweb. Twenty Acres of Haunted Woods. Shock after shock.">
+    </video>
     <div class="hero__actions">
       <a class="btn btn--solid" href="tickets.html">Buy Tickets</a>
       <a class="btn" href="#videos">Watch Video</a>

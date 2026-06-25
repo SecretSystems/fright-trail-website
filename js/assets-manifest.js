@@ -10,7 +10,8 @@
    gracefully falls back to the section's built-in CSS/SVG art.
    ========================================================================== */
 window.FRIGHT_ASSETS = {
-  hero: "assets/img/hero/main/image.png?v=1782199093007",
+  hero: null,
+  heroVideo: "assets/img/hero/main/Josh_Use_Image_1_as_the_starting_frame_and_Image_2_as_the_ending_frame.mp4?v=1782345054290",
 
   cards: {
     tickets: "assets/img/cards/tickets/Screenshot%202026-06-23%20181322.png?v=1782256402275",

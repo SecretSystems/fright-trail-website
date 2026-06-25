@@ -28,6 +28,7 @@ const ROOT = path.resolve(__dirname, "..");
 const MANIFEST = path.join(ROOT, "js", "assets-manifest.js");
 
 const VALID_EXT = [".png", ".jpg", ".jpeg", ".webp", ".gif"];
+const VIDEO_EXT = [".mp4", ".webm", ".mov", ".m4v", ".ogv"];
 const IGNORE = new Set(["readme.txt", ".ds_store", "thumbs.db"]);
 
 /* section key (dot-path) -> folder (relative to project root) */
@@ -80,6 +81,22 @@ function newestImage(absDir) {
     })
     .sort(function (a, b) { return b.mtime - a.mtime; });
   return imgs.length ? imgs[0] : null;   // { name, mtime } | null
+}
+
+/* newest video file in a folder (mp4/webm/mov...) -> { name, mtime } | null */
+function newestVideo(absDir) {
+  let entries;
+  try { entries = fs.readdirSync(absDir, { withFileTypes: true }); }
+  catch (e) { return null; }
+  const vids = entries
+    .filter(function (d) {
+      if (!d.isFile() || d.name.startsWith(".")) return false;
+      if (IGNORE.has(d.name.toLowerCase())) return false;
+      return VIDEO_EXT.indexOf(path.extname(d.name).toLowerCase()) !== -1;
+    })
+    .map(function (d) { return { name: d.name, mtime: fs.statSync(path.join(absDir, d.name)).mtimeMs }; })
+    .sort(function (a, b) { return b.mtime - a.mtime; });
+  return vids.length ? vids[0] : null;
 }
 
 /* read previous manifest (best effort) so we can keep a still-valid path */
@@ -144,6 +161,15 @@ function main() {
     report.push({ key: sec.key, dir: sec.dir, note: note, url: url });
   });
 
+  // ---- hero VIDEO (newest mp4/webm/... dropped into assets/img/hero/main/) ----
+  let heroVideo = null;
+  let heroVideoNote = "(none — hero shows the still image)";
+  const hv = newestVideo(path.join(ROOT, "assets/img/hero/main"));
+  if (hv) {
+    heroVideo = toVersionedUrl("assets/img/hero/main/" + hv.name, hv.mtime);
+    heroVideoNote = hv.name;
+  }
+
   // ---- serialise to the stable, readable shape ----
   const q = function (v) { return v == null ? "null" : '"' + v + '"'; };
   const out =
@@ -160,6 +186,7 @@ function main() {
 "   ========================================================================== */\n" +
 "window.FRIGHT_ASSETS = {\n" +
 "  hero: " + q(resolved.hero) + ",\n" +
+"  heroVideo: " + q(heroVideo) + ",\n" +
 "\n" +
 "  cards: {\n" +
 "    tickets: " + q(resolved.cards.tickets) + ",\n" +
@@ -191,6 +218,7 @@ function main() {
     if (!r.url) missing++;
     console.log("  [" + flag + "] " + r.key.padEnd(22) + " " + r.note);
   });
+  console.log("  [" + (heroVideo ? "OK " : "-- ") + "] " + "heroVideo".padEnd(22) + " " + heroVideoNote);
   console.log("\n  " + (report.length - missing) + "/" + report.length + " sections have an image" +
               (missing ? "  (" + missing + " using fallback art)" : "") + "\n");
 }

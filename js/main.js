@@ -128,6 +128,22 @@
     return path.split(".").reduce(function (o, k) { return o == null ? null : o[k]; }, a);
   }
   function initAssets() {
+    // Hero video: inject the <source> from the manifest and start it. If there
+    // is no heroVideo the <video> just shows its SVG poster (graceful).
+    var heroVid = document.querySelector("[data-hero-video]");
+    if (heroVid) {
+      var vurl = window.FRIGHT_ASSETS && window.FRIGHT_ASSETS.heroVideo;
+      if (vurl) {
+        var src = document.createElement("source");
+        src.setAttribute("src", vurl);
+        src.setAttribute("type", "video/mp4");
+        heroVid.insertBefore(src, heroVid.firstChild);
+        try { heroVid.load(); } catch (e) {}
+        var played = heroVid.play && heroVid.play();
+        if (played && played.catch) played.catch(function () { /* autoplay blocked; muted should allow it */ });
+      }
+    }
+
     document.querySelectorAll("[data-asset]").forEach(function (node) {
       var url = getAsset(node.getAttribute("data-asset"));
       var isImg = node.tagName === "IMG";
